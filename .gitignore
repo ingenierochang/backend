@@ -1,0 +1,40 @@
+# Ignore database files
+*.sqlite3
+*.db
+
+# Ignore static files
+staticfiles/
+
+# Ignore media files
+media/
+
+# Ignore environment files
+.env
+
+# Ignore Python bytecode
+__pycache__/
+*.pyc
+
+# Ignore local settings
+local_settings.py
+
+# Ignore virtual environment
+venv/
+.env/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore logs
+*.log
+
+# Ignore local development files
+*.local
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+.coverage
