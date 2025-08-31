@@ -13,7 +13,7 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+
 from django.contrib import admin
 from django.urls import path, include
 
@@ -37,4 +37,22 @@ urlpatterns = [
     path('restaurants/', include('apps.restaurants.urls')),
     # path('products/', include('apps.products.urls')),
 
+]
+"""
+from django.contrib import admin
+from django.urls import path, include
+from apps.users.views import LogoutView, auth_users_me, login_user
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+    path('', include('apps.core.urls')),
+    path('api/accounts/', include('apps.users.urls')),
+
+    # 🔥 Alias para compatibilidad con el frontend
+    path("auth/login/", login_user, name="alias_login"),
+    path("auth/logout/", LogoutView.as_view(), name="alias_logout"),
+    path("auth/users/me/", auth_users_me, name="alias_me"),
+
+    path('restaurants/', include('apps.restaurants.urls')),
 ]
